@@ -1,25 +1,25 @@
+// before we use state we need to import it
+import {useState} from 'react';
 import './App.css';
 
-// every component has a built in props object
-const Person = (props) => {
-  return (
-    <>
-      <h1>Name: {props.name}</h1>
-      <h2>Last Name: {props.LastName}</h2>
-      <h2>Age: {props.age}</h2>
-    </>
-  )
-}
 
 
 const App = () => {  
+  // use const and use the concept of array destructuring that is how state works
+  // whenever you call something as a function and it starts with use, in react we cal that a hook
+  // in the square brackets we will have the name of the state
+  // the second part is going to be the setter function 
+  // a good rule of thumb is that you call the second variable the same as the first one but add the set infront because it is a setter function for the first variable
+  // inside of the usestate you provide the initial value
+  const [counter, setCounter] = useState(0);
   
   return (
     <div className="App">
-      {/* below we are assigning a name to our first component as john */}
-      <Person name={'john'} LastName={'Doe'} age={25}/>
-      <Person name='victor' LastName='ketch' age={12}/>
-      <Person name="brian" LastName="Kiama" age={30}/>
+      {/* to really show the purpose of state let's use a counter */}
+      <button>-</button>
+      <h1>{counter}</h1>
+      <button>+</button>
+      
     </div>
   );
 }
