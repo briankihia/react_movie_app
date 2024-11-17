@@ -1,11 +1,28 @@
 // Event is an action that can be triggered as a result of the user action or some kind of system generated event
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 
 
 const App = () => {  
   const [counter, setCounter] = useState(0);
+
+  // useEffect accepts a callback function as a parameter
+// useEffect allows us to do something on some kind of event
+// below code will run as soon as the page loads. Th code happens as soon as this whole component renders
+  useEffect(() => {
+    // alert('Reload')
+    // knowing that it is run when page reloads
+    // how do we use this to change the value of our counter to 100 as soon as the page reloads
+    // counter=100 is wrong this breaks the below rule bringing error
+    // NEVER MODIFY STATE MANUALLY
+    // what we can do is call the setCounter and set it to 100
+    setCounter(100);
+    // the above alone will not work like we want it to since even when you try to change the counter by increasing or decreasing nothing will happen
+    // thus we add the second parameter to the use effect which is called the dependency array
+    // below we are leaving the dependency array empty thus the code inside useEffect will only happen in the initial load of the component
+    
+  }, []);
   
   return (
     <div className="App">
